@@ -3,19 +3,33 @@
 class Employe{
     public $nom;
     public $prenom;
-    public $age;
+    private $age;
 
     public function __construct($nom, $prenom, $age)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
+        $this->setAge($age);
+    }
+
+    public function setAge($age):void
+    {
+        if(!is_int($age))
+        {
+            throw new Exception("L'age doit etre un entier");
+        }
         $this->age = $age;
     }
 
-    public function presentation()
+    public function getAge():int
     {
-        var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans");
+        return $this->age;
+    }
+
+    public function presentation():string
+    {
+        return "Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans";
     }
 }
 
-(new Employe('ANDRIA','Lana','4'))->presentation();
+echo (new Employe('ANDRIA','Lana','test'))->presentation();
