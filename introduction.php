@@ -1,9 +1,10 @@
 <?php
 
+
 class Employe{
     public $nom;
     public $prenom;
-    private $age;
+    protected $age;
 
     public function __construct($nom, $prenom, $age)
     {
@@ -28,8 +29,8 @@ class Employe{
 
     public function presentation():string
     {
-        return "Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans";
+        return "Salut, je suis $this->prenom $this->nom et j'ai $this->age ans";
     }
 }
 
-echo (new Employe('ANDRIA','Lana','test'))->presentation();
+echo (new Employe('ANDRIA','Lana',35))->presentation();
