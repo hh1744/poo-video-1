@@ -1,7 +1,7 @@
 <?php
 
-
-class Employe{
+Abstract class Humain
+{
     public $nom;
     public $prenom;
     protected $age;
@@ -27,10 +27,5 @@ class Employe{
         return $this->age;
     }
 
-    public function presentation():string
-    {
-        return "Salut, je suis $this->prenom $this->nom et j'ai $this->age ans";
-    }
+    abstract public function is_here();
 }
-
-echo (new Employe('ANDRIA','Lana',35))->presentation();
